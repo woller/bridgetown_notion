@@ -8,7 +8,7 @@ module BridgetownNotion
       end
       
       def generate
-        "#{self.class::MARKDOWN_SYMBOL} #{rich_text}\n"
+        "#{self.class::MARKDOWN_SYMBOL}#{rich_text}\n"
       end
 
       private

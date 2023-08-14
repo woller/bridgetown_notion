@@ -3,7 +3,7 @@
 module BridgetownNotion
   module MarkdownGenerators
     class BulletedListItem < Base 
-      MARKDOWN_SYMBOL = "-"
+      MARKDOWN_SYMBOL = "- "
     end
   end
 end
