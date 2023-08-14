@@ -4,7 +4,7 @@ module BridgetownNotion
   module MarkdownGenerators
     class Base
       def initialize(block)
-        @rich_text = BridgetownNotion::Parsers::RichTextParser.new(block[name]["rich_text"])
+        @rich_text = BridgetownNotion::MarkdownGenerators::RichText.new(block[name]["rich_text"])
       end
       
       def generate

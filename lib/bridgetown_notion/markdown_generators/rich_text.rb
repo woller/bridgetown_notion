@@ -1,9 +1,9 @@
 module BridgetownNotion
-  module Parsers
-    class RichTextParser
+  module MarkdownGenerators
+    class RichText
       def initialize(rich_text_nodes)
         @rich_text_nodes = rich_text_nodes.map do |fragment|
-          RichText.new(fragment)
+          RichTextNode.new(fragment)
         end
       end
 
