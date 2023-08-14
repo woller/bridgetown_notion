@@ -3,6 +3,10 @@ module BridgetownNotion
     class RichTextNode
       ANNOTATION_SYMBOLS = {
         "code" => "`",
+        "bold" => "**",
+        "italic" => "*",
+        "strikethrough" => "~~",
+        "underline" => "<u>",
       }
 
       def initialize(node)
@@ -35,7 +39,8 @@ module BridgetownNotion
         return unless symbol && applyable
 
         text.prepend(symbol)
-        text.concat(symbol)
+        text.concat(symbol) unless annotation_key == "underline"
+        text.concat("</u>") if annotation_key == "underline"
       end
     end
   end

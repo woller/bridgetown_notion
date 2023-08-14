@@ -14,12 +14,43 @@ class TestRichTextNode < Bridgetown::TestCase
       end
 
       it "handles inline code" do
-        # p JSON.parse(File.read("test/fixtures/blocks/paragraph_with_annotations.json"))["paragraph"]["rich_text"][1]
         rich_text_node = {"type"=>"text", "text"=>{"content"=>"inline code", "link"=>nil}, "annotations"=>{"bold"=>false, "italic"=>false, "strikethrough"=>false, "underline"=>false, "code"=>true, "color"=>"default"}, "plain_text"=>"inline code", "href"=>nil}
         
         result = BridgetownNotion::MarkdownGenerators::RichTextNode.new(rich_text_node).to_s
         
         assert_equal "`inline code`", result
+      end
+      
+      it "handles bold text" do
+        rich_text_node = {"type"=>"text", "text"=>{"content"=>"bold text", "link"=>nil}, "annotations"=>{"bold"=>true, "italic"=>false, "strikethrough"=>false, "underline"=>false, "code"=>false, "color"=>"default"}, "plain_text"=>" ", "href"=>nil}
+        
+        result = BridgetownNotion::MarkdownGenerators::RichTextNode.new(rich_text_node).to_s
+        
+        assert_equal "**bold text**", result
+      end
+
+      it "handles italic text" do
+        rich_text_node = {"type"=>"text", "text"=>{"content"=>"italic text", "link"=>nil}, "annotations"=>{"bold"=>false, "italic"=>true, "strikethrough"=>false, "underline"=>false, "code"=>false, "color"=>"default"}, "plain_text"=>" ", "href"=>nil}
+
+        result = BridgetownNotion::MarkdownGenerators::RichTextNode.new(rich_text_node).to_s
+
+        assert_equal "*italic text*", result
+      end
+
+      it "handles strikethrough text" do
+        rich_text_node = {"type"=>"text", "text"=>{"content"=>"strikethrough text", "link"=>nil}, "annotations"=>{"bold"=>false, "italic"=>false, "strikethrough"=>true, "underline"=>false, "code"=>false, "color"=>"default"}, "plain_text"=>" ", "href"=>nil}
+
+        result = BridgetownNotion::MarkdownGenerators::RichTextNode.new(rich_text_node).to_s
+
+        assert_equal "~~strikethrough text~~", result
+      end
+
+      it "handles underline text" do
+        rich_text_node = {"type"=>"text", "text"=>{"content"=>"underline text", "link"=>nil}, "annotations"=>{"bold"=>false, "italic"=>false, "strikethrough"=>false, "underline"=>true, "code"=>false, "color"=>"default"}, "plain_text"=>" ", "href"=>nil}
+
+        result = BridgetownNotion::MarkdownGenerators::RichTextNode.new(rich_text_node).to_s
+
+        assert_equal "<u>underline text</u>", result
       end
     end
   end
