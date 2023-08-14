@@ -2,10 +2,8 @@
 
 module BridgetownNotion
   module MarkdownGenerators
-    class Heading1MarkdownGenerator
-      def self.generate(text)
-        "# #{text}\n"
-      end
+    class Heading1 < BridgetownNotion::MarkdownGenerators::Base
+      MARKDOWN_SYMBOL = "#"
     end
   end
 end
