@@ -358,6 +358,7 @@ class TestNotionPostsFactory < Bridgetown::TestCase
             "text" => { "content" => "Heading 1", "link" => nil },
           }],
         },
+        "type" => "heading_1"
       }]
 
       stub_request(:get, "https://api.notion.com/v1/blocks/post-uuid/children?page_size=100")
@@ -382,7 +383,8 @@ class TestNotionPostsFactory < Bridgetown::TestCase
         tags: "t1 t2",
         title: "test-1",
       }]
-      assert_equal result, expected
+      
+      assert_equal expected, result
     end
   end
   # rubocop:enable Metrics/BlockLength:

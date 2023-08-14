@@ -12,34 +12,42 @@ class TestContentParser < Bridgetown::TestCase
             "heading_1" => {
               "rich_text" => [{ "text" => { "content" => "Heading 1" } }],
             },
+            "type" => "heading_1"
           }, {
             "heading_2" => {
               "rich_text" => [{ "text" => { "content" => "Heading 2" } }],
             },
+            "type" => "heading_2"
           }, {
             "heading_3" => {
               "rich_text" => [{ "text" => { "content" => "Heading 3" } }],
             },
+            "type" => "heading_3"
           }, {
             "heading_4" => {
               "rich_text" => [{ "text" => { "content" => "Heading 4" } }],
             },
+            "type" => "heading_4"
           }, {
             "heading_5" => {
               "rich_text" => [{ "text" => { "content" => "Heading 5" } }],
             },
+            "type" => "heading_5"
           }, {
             "heading_6" => {
               "rich_text" => [{ "text" => { "content" => "Heading 6" } }],
             },
+            "type" => "heading_6"
           }, {
             "paragraph" => {
               "rich_text" => [{ "text" => { "content" => "Paragraph text." } }],
             },
+            "type" => "paragraph"
           }, {
             "bulleted_list_item" => {
               "rich_text" => [{ "text" => { "content" => "List item text." } }],
             },
+            "type" => "bulleted_list_item"
           },],
         }
         expected_markdown = <<~MARKDOWN

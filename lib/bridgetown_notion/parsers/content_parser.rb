@@ -15,12 +15,11 @@ module BridgetownNotion
       end
 
       private_class_method def self.get_content(block)
-        block_type, content = BridgetownNotion::Parsers::BlockParser.parse(block)
         Object.const_get(
-          "BridgetownNotion::MarkdownGenerators::#{block_type.camelize}MarkdownGenerator"
-        ).generate(content)
+          "BridgetownNotion::MarkdownGenerators::#{block["type"].camelize}"
+        ).new(block).generate
       rescue StandardError
-        "\n"
+        "\n\n```#{block["type"]} not yet implemented```\n\n"
       end
     end
   end

@@ -6,7 +6,7 @@ module BridgetownNotion
       end
 
       def to_s
-        node["plain_text"]
+        node["text"]["content"]
       end
 
       private
