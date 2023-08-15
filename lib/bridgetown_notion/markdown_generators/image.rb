@@ -2,19 +2,21 @@
 
 module BridgetownNotion
   module MarkdownGenerators
-    class Code < BridgetownNotion::MarkdownGenerators::Base
+    class Image < BridgetownNotion::MarkdownGenerators::Base
       def generate
         <<~MARKDOWN
-          ```#{language}
-            #{rich_text}
-          ```
+          ![#{title}](#{url})
         MARKDOWN
       end
 
       private
 
-      def language
-        data["language"]
+      def title
+        "Untitled"
+      end
+
+      def url
+        data["file"]["url"]
       end
     end
   end

@@ -5,7 +5,7 @@ module BridgetownNotion
     class Base
       def initialize(block)
         @block = block
-        @rich_text = BridgetownNotion::MarkdownGenerators::RichText.new(block[name]["rich_text"])
+        @rich_text = BridgetownNotion::MarkdownGenerators::RichText.new(data["rich_text"]) if data.key?("rich_text")
       end
       
       def generate
@@ -22,6 +22,10 @@ module BridgetownNotion
         result.gsub!(/\d/, "_#{result[-1]}") if result[-1].match?(/\d/)
 
         result
+      end
+
+      def data
+        block[name]
       end
     end
   end
