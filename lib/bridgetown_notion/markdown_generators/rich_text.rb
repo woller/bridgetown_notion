@@ -7,13 +7,13 @@ module BridgetownNotion
         end
       end
 
-      private
-
-      attr_reader :rich_text_nodes
-
       def to_s
         rich_text_nodes.map(&:to_s).join
       end
+      
+      private
+      
+      attr_reader :rich_text_nodes
     end
   end
 end
