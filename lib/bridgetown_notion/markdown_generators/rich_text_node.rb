@@ -15,8 +15,8 @@ module BridgetownNotion
 
       def to_s
         formatted_text = text.dup
-        annotations.each_pair do |annotation_key, applyable|
-          wrap_with_annotation(formatted_text, annotation_key, applyable)
+        ANNOTATION_SYMBOLS.each_pair do |key, symbol|
+          wrap_with_annotation(formatted_text, annotations[key], symbol) 
         end
 
         formatted_text
@@ -34,13 +34,12 @@ module BridgetownNotion
         node["annotations"]
       end
 
-      def wrap_with_annotation(text, annotation_key, applyable)
-        symbol = ANNOTATION_SYMBOLS[annotation_key]
-        return unless symbol && applyable
+      def wrap_with_annotation(text, applyable, symbol)
+        return unless applyable
 
         text.prepend(symbol)
-        text.concat(symbol) unless annotation_key == "underline"
-        text.concat("</u>") if annotation_key == "underline"
+        text.concat(symbol) unless symbol == "<u>"
+        text.concat("</u>") if symbol == "<u>"
       end
     end
   end

@@ -52,6 +52,22 @@ class TestRichTextNode < Bridgetown::TestCase
 
         assert_equal "<u>underline text</u>", result
       end
+
+      it "handles both bold and italic" do
+        rich_text_node = {"type"=>"text", "text"=>{"content"=>"bold and italic", "link"=>nil}, "annotations"=>{"bold"=>true, "italic"=>true, "strikethrough"=>false, "underline"=>false, "code"=>false, "color"=>"default"}, "plain_text"=>" ", "href"=>nil}
+
+        result = BridgetownNotion::MarkdownGenerators::RichTextNode.new(rich_text_node).to_s
+
+        assert_equal "***bold and italic***", result 
+      end
+
+      it "handles italic inline code" do
+        rich_text_node = {"type"=>"text", "text"=>{"content"=>"italic inline code", "link"=>nil}, "annotations"=>{"bold"=>false, "italic"=>true, "strikethrough"=>false, "underline"=>false, "code"=>true, "color"=>"default"}, "plain_text"=>" ", "href"=>nil}
+
+        result = BridgetownNotion::MarkdownGenerators::RichTextNode.new(rich_text_node).to_s
+
+        assert_equal "*`italic inline code`*", result
+      end
     end
   end
 end
