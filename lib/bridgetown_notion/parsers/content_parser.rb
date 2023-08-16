@@ -18,7 +18,7 @@ module BridgetownNotion
         Object.const_get(
           "BridgetownNotion::MarkdownGenerators::#{block["type"].camelize}"
         ).new(block).generate
-      rescue StandardError
+      rescue NameError
         "\n\n```#{block["type"]} not yet implemented```\n\n"
       end
     end
