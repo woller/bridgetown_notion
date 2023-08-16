@@ -19,10 +19,28 @@
   "archived": false,
   "type": "image",
   "image": {
-    "caption": [],
+    "caption": [
+      {
+        "type": "text",
+        "text": {
+          "content": "Ruby Logo",
+          "link": null
+        },
+        "annotations": {
+          "bold": false,
+          "italic": false,
+          "strikethrough": false,
+          "underline": false,
+          "code": false,
+          "color": "default"
+        },
+        "plain_text": "Cool dude",
+        "href": null
+      }
+    ],
     "type": "file",
     "file": {
-      "url": "image_url.png",
+      "url": "https://example.com/image_url.png",
       "expiry_time": "2023-08-14T12:14:49.338Z"
     }
   }
