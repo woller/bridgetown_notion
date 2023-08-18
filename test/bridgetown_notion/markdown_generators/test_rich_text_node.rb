@@ -68,6 +68,14 @@ class TestRichTextNode < Bridgetown::TestCase
 
         assert_equal "*`italic inline code`*", result
       end
+
+      it "handles links" do
+        rich_text_node = {"type"=>"text", "text"=>{"content"=>"link", "link"=>{"type"=>"url", "url"=>"https://www.bridgetownrb.com"}}, "annotations"=>{"bold"=>false, "italic"=>false, "strikethrough"=>false, "underline"=>false, "code"=>false, "color"=>"default"}, "plain_text"=>"link", "href"=>"https://www.bridgetownrb.com"}
+
+        result = BridgetownNotion::MarkdownGenerators::RichTextNode.new(rich_text_node).to_s
+
+        assert_equal "[link](https://www.bridgetownrb.com)", result
+      end
     end
   end
 end

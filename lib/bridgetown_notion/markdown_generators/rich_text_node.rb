@@ -14,32 +14,38 @@ module BridgetownNotion
       end
 
       def to_s
-        formatted_text = text.dup
+        formatted_content = content.dup
         ANNOTATION_SYMBOLS.each_pair do |key, symbol|
-          wrap_with_annotation(formatted_text, annotations[key], symbol) 
+          wrap_with_annotation(formatted_content, annotations[key], symbol) 
         end
 
-        formatted_text
+        formatted_content
       end
 
       private
 
       attr_reader :node
 
-      def text
-        node["text"]["content"]
+      def content
+        return node["text"]["content"] unless link
+
+        "[#{node["text"]["content"]}](#{link})"
       end
 
       def annotations
         node["annotations"]
       end
 
-      def wrap_with_annotation(text, applyable, symbol)
+      def link
+        node.dig("text", "link", "url")
+      end
+
+      def wrap_with_annotation(content, applyable, symbol)
         return unless applyable
 
-        text.prepend(symbol)
-        text.concat(symbol) unless symbol == "<u>"
-        text.concat("</u>") if symbol == "<u>"
+        content.prepend(symbol)
+        content.concat(symbol) unless symbol == "<u>"
+        content.concat("</u>") if symbol == "<u>"
       end
     end
   end
