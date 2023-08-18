@@ -2,10 +2,8 @@
 
 module BridgetownNotion
   module MarkdownGenerators
-    class Heading2MarkdownGenerator
-      def self.generate(text)
-        "## #{text}\n"
-      end
+    class BulletedListItem < Base 
+      MARKDOWN_SYMBOL = "- "
     end
   end
 end

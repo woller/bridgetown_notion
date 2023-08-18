@@ -348,7 +348,7 @@ class TestNotionPostsFactory < Bridgetown::TestCase
         },
       }]
       stub_request(:post, "https://api.notion.com/v1/databases/notion-db-id/query")
-        .to_return(status: 200, body: { results: @post_results }.to_json, headers: {})
+        .to_return(status: 200, body: { results: @post_results }.to_json, headers: { content_type: "application/json"})
 
       @blocks_results = [{
         "object"    => "block",
@@ -358,10 +358,11 @@ class TestNotionPostsFactory < Bridgetown::TestCase
             "text" => { "content" => "Heading 1", "link" => nil },
           }],
         },
+        "type" => "heading_1"
       }]
 
       stub_request(:get, "https://api.notion.com/v1/blocks/post-uuid/children?page_size=100")
-        .to_return(status: 200, body: { results: @blocks_results }.to_json, headers: {})
+        .to_return(status: 200, body: { results: @blocks_results }.to_json, headers: { content_type: "application/json"})
       WebMock.reset_executed_requests!
     end
     # rubocop:enable  Metrics/MethodLength:
@@ -382,7 +383,8 @@ class TestNotionPostsFactory < Bridgetown::TestCase
         tags: "t1 t2",
         title: "test-1",
       }]
-      assert_equal result, expected
+      
+      assert_equal expected, result
     end
   end
   # rubocop:enable Metrics/BlockLength:

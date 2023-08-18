@@ -1,0 +1,47 @@
+{
+  "object": "block",
+  "id": "b3863426-e252-49d6-ae76-8cffbcb242fa",
+  "parent": {
+    "type": "page_id",
+    "page_id": "c825783c-8cb6-497a-9f53-125f0512758f"
+  },
+  "created_time": "2023-08-11T11:11:00.000Z",
+  "last_edited_time": "2023-08-11T11:11:00.000Z",
+  "created_by": {
+    "object": "user",
+    "id": "df7782ab-d21d-44f3-b6b7-502a063f10fa"
+  },
+  "last_edited_by": {
+    "object": "user",
+    "id": "df7782ab-d21d-44f3-b6b7-502a063f10fa"
+  },
+  "has_children": false,
+  "archived": false,
+  "type": "image",
+  "image": {
+    "caption": [
+      {
+        "type": "text",
+        "text": {
+          "content": "Ruby Logo",
+          "link": null
+        },
+        "annotations": {
+          "bold": false,
+          "italic": false,
+          "strikethrough": false,
+          "underline": false,
+          "code": false,
+          "color": "default"
+        },
+        "plain_text": "Cool dude",
+        "href": null
+      }
+    ],
+    "type": "file",
+    "file": {
+      "url": "https://example.com/image_url.png",
+      "expiry_time": "2023-08-14T12:14:49.338Z"
+    }
+  }
+}

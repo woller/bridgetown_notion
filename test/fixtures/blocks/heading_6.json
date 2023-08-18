@@ -1,0 +1,44 @@
+{
+  "object": "block",
+  "id": "94d7f106-99bc-4a03-8c79-3ab9a764ae67",
+  "parent": {
+    "type": "page_id",
+    "page_id": "c825783c-8cb6-497a-9f53-125f0512758f"
+  },
+  "created_time": "2023-08-11T11:11:00.000Z",
+  "last_edited_time": "2023-08-11T11:11:00.000Z",
+  "created_by": {
+    "object": "user",
+    "id": "df7782ab-d21d-44f3-b6b7-502a063f10fa"
+  },
+  "last_edited_by": {
+    "object": "user",
+    "id": "df7782ab-d21d-44f3-b6b7-502a063f10fa"
+  },
+  "has_children": false,
+  "archived": false,
+  "type": "heading_6",
+  "heading_6": {
+    "rich_text": [
+      {
+        "type": "text",
+        "text": {
+          "content": "Register the gateway server",
+          "link": null
+        },
+        "annotations": {
+          "bold": false,
+          "italic": false,
+          "strikethrough": false,
+          "underline": false,
+          "code": false,
+          "color": "default"
+        },
+        "plain_text": "Register the gateway server",
+        "href": null
+      }
+    ],
+    "is_toggleable": false,
+    "color": "default"
+  }
+}
