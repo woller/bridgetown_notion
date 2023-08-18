@@ -10,7 +10,7 @@ class TestHeading3 < Bridgetown::TestCase
         
         result = BridgetownNotion::MarkdownGenerators::Heading3.new(heading).generate
         
-        assert_equal "### Register the gateway server\n", result
+        assert_equal "### Register the gateway server", result
       end
     end
   end

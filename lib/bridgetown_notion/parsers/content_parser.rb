@@ -12,7 +12,7 @@ module BridgetownNotion
           content += get_content(block)
           if block["type"] == "paragraph"
             content += "\n\n"
-          elsif block["type"] == "bulleted_list_item" && blocks[index + 1]["type"] != "bulleted_list_item"
+          elsif block["type"] == "bulleted_list_item" && blocks[index + 1]&["type"] != "bulleted_list_item"
             content += "\n\n"
           else
             content += "\n"

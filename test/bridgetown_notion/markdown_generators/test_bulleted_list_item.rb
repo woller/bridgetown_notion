@@ -10,7 +10,7 @@ class TestBulletedListItem < Bridgetown::TestCase
         
         result = BridgetownNotion::MarkdownGenerators::BulletedListItem.new(bulleted_list_item).generate
         
-        assert_equal "- 1 load balancer and gateway server\n", result
+        assert_equal "- 1 load balancer and gateway server", result
       end
     end
   end
