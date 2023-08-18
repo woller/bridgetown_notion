@@ -6,7 +6,7 @@ module BridgetownNotion
       def generate
         <<~MARKDOWN
           ```#{language}
-            #{rich_text}
+          #{rich_text}
           ```
         MARKDOWN
       end

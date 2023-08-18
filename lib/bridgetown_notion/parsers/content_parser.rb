@@ -8,8 +8,15 @@ module BridgetownNotion
       def self.parse(post)
         content = ""
         blocks = post.fetch("blocks", [])
-        blocks.each do |block|
+        blocks.each_with_index do |block, index|
           content += get_content(block)
+          if block["type"] == "paragraph"
+            content += "\n\n"
+          elsif block["type"] == "bulleted_list_item" && blocks[index + 1]["type"] != "bulleted_list_item"
+            content += "\n\n"
+          else
+            content += "\n"
+          end
         end
         content
       end
